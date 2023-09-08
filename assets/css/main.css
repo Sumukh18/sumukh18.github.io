@@ -2175,7 +2175,8 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		background: #dbd7d2 url("../../images/Sumukh\ Photo_page-0001.jpg");
+		background: #dbd7d2 ;
+		/* url("../../images/stock-vector-set-of-cute-vintage-robots-banner-with-robot-toys-collection-746786869.jpg") */
 		background-position: center right;
 		background-size: auto 100%;
 		background-repeat: no-repeat;
@@ -2190,7 +2191,7 @@ input, select, textarea {
 			display: inline-block;
 			padding: 2.5em 5em;
 			border-radius: 5px;
-			margin: 0 25em 1.5em 0;
+			margin: 0 0 0 0;
 		}
 
 			#banner header h2 {
