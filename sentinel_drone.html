@@ -59,23 +59,33 @@
 									<p>[Sept'22 - Feb'23]</p>
 								</header>
 								<p>
-									The "Development of TeleOperation and TeleObservance Robot" project marks a remarkable journey into the realm of robotics and autonomous systems. Our team at SeiAnmai Tech. collaborated to create an innovative mobile platform capable of autonomous navigation and seamless teleoperation, tailored to address the growing demands of various real-world applications.
+									The project aimed at revolutionizing surveillance and emergency response through the development of an advanced drone system. The primary objective was to create a versatile drone that could autonomously monitor and report various incidents, such as accidents and fires, as well as detect any unusual activities or anomalies in a given area. To achieve this, we harnessed the power of image processing technology and seamlessly integrated it with a Geographic Information System (GIS) for efficient data management and analysis.									
 								</p>
 								<p>
-									Guided by our vision for a versatile robotic system, we set out to design a robot that could operate efficiently without human intervention, while also incorporating features that enable intuitive remote control and observation. The foundation of our robot was built upon the powerful Robot Operating System (ROS2) Humble, providing a robust framework for the integration of diverse functionalities.
+									The journey began with the software development phase, where we meticulously designed and implemented the core functionalities of our surveillance drone. We chose to utilize ROS Noetic, a highly versatile and widely adopted robotics framework, as the foundation of our software architecture. Additionally, we employed Gazebo, a powerful robotics simulation environment, to rigorously test and refine our algorithms before transitioning to the hardware phase.
 								</p>
 								<p>
-									Navigating through dynamic and static obstacles with confidence, the robot demonstrated its autonomy through Simultaneous Localization and Mapping (SLAM) techniques. The integration of micro-ROS with Raspberry Pi Pico allowed for seamless communication between the high-level ROS2 environment and the low-level hardware, enhancing the robot's adaptability and responsiveness.
+									During the simulation phase, we crafted a virtual environment in Gazebo to emulate real-world scenarios. This allowed us to evaluate the drone's performance in a controlled environment, fine-tune its navigation algorithms, and optimize its image processing capabilities. It also facilitated the development of a robust communication system for data transmission between the drone and the GIS platform.
 								</p>
 								<p>
-									Autonomous docking, driven by Aruco marker detection, showcased the robot's intelligence as it effortlessly navigated and docked with precision. This cutting-edge application exemplified the potential of robotics in practical scenarios.
+									In order to ensure precise control of the drone's position and orientation in 3D space, we implemented a Proportional-Integral-Derivative (PID) controller during the simulation phase. This PID controller played a pivotal role in stabilizing and maneuvering the drone, enhancing its overall performance and responsiveness. To achieve this, we integrated a sophisticated whycon marker detection system. A high-resolution camera mounted on the ceiling captured real-time images of the drone's flight area. The whycon marker, a distinctive visual marker affixed to the drone's body, served as a reference point. By analyzing the marker's position and orientation in the camera's field of view, our PID controller made rapid and precise adjustments to the drone's position, roll, pitch, and yaw. This not only allowed for accurate tracking of the drone's movements but also ensured its ability to maintain stable flight even in challenging conditions, making it a highly reliable tool for automated surveillance and incident response in real-world environments.
 								</p>
 								<p>
-									Throughout the development process, meticulous calibration of motors and fine-tuning of PID control algorithms laid the foundation for the robot's stable and accurate movements. Extensive testing and debugging ensured the system's robustness, making it adaptable to diverse environments and scenarios.
+									Once we were satisfied with the results in the virtual realm, we proceeded to the hardware implementation phase. Here, we assembled a compact nano drone equipped with the ESC, camera, Bannan Pi, Li-Po battery, brushless motors, and propellers to replicate the functionality developed in the simulation. This physical drone was designed to execute the same surveillance tasks as its virtual counterpart but in real-world environments, ensuring the robustness and reliability of our system.
 								</p>
 								<p>
-									The complete setup was implemented using the Robot Operating System (ROS2 Humble) framework. The primary rationale behind this choice was the ability to reuse code, achieve modularity, and enable seamless communication among different modules.
+									The implementation of PID control in hardware differed from the simulation phase due to the real-world constraints and dynamics of the nano drone. In the hardware implementation, we had to account for the physical limitations of the drone's sensors, actuators, and the environment it operated in. We fine-tuned the PID parameters through extensive testing and experimentation in real-world conditions. The key challenge was dealing with external factors such as wind, humidity, and variations in lighting conditions that could affect the drone's performance. This required a robust and adaptive PID control system that could dynamically adjust its parameters to maintain stable flight.
 								</p>
+								<p>
+									In practice, our surveillance drone autonomously patrols designated areas, capturing images and video footage through its onboard cameras. These images are processed in real-time using computer vision techniques to identify accidents, fires, or any unusual activities. When an incident is detected, the drone initiates an immediate response by transmitting the relevant data to the GIS platform for analysis and visualization.
+								</p>
+								<p>
+									The integration with the GIS platform is a pivotal component of our system. It enables the collected data to be efficiently managed, geospatially analyzed, and shared with relevant control station for prompt action. GIS not only serves as a central hub for data storage but also provides a comprehensive visual representation of incidents and anomalies, aiding decision-makers in coordinating effective responses.
+								</p>
+								<p>
+									In conclusion, our project represents a fusion of robotics, image processing, and GIS technologies. By developing a drone capable of autonomously surveilling and reporting incidents, we have taken a step towards enhancing emergency response, public safety, and overall situational awareness in various contexts, from disaster management to urban surveillance. Our approach, coupled with the thorough simulation and hardware validation, ensures the reliability and efficiency of our automated surveillance system in real-world applications.
+								</p>
+
 								<img src="images/Sentinel_Drone.png" alt="" width="360" height="360"/>
 								<img src="images/drone_cam_view.png" alt="" width="640" height="360"/>
 
