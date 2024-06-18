@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Projects</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- Add the CSS styles here -->
+    <style>
+        .youtube-card {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .youtube-card iframe {
+            width: 100%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+
+<body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <section id="header">
+            <!-- Logo -->
+            <h1><a href="index.html">Trigger Word Detection</a></h1>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#experience">Experiences</a></li>
+                    <li class="current"><a href="index.html#projects">Projects</a></li>
+                    <li>
+                        <a
+                            href="https://drive.google.com/file/d/1ckyzWHTXArs-Pzm8bcG7dvX9vJTY7EIS/view?usp=sharing">Resume</a>
+                    </li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#blogs">Blogs</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Main -->
+        <section id="main">
+            <div class="container">
+                <!-- Content -->
+                <article class="box post">
+                    <a href="#" class="image featured"></a>
+
+                    <header>
+                        <p>[Jun'24]</p>
+                    </header>
+                    <h1>Trigger Word Detection with Continuous Temporal Classification using Deep Learning</h1>
+
+                    <p>Trigger word detection is the technology that allows devices like Amazon Alexa, Google Home,
+                        Apple Siri, and Baidu DuerOS to wake up upon hearing a certain word. For this project, the
+                        trigger word is "activate". Every time it hears "activate", it makes a "chiming" sound.</p>
+
+                    <p>In this project, I learned to:</p>
+                    <ul>
+                        <li>Structure a speech recognition project</li>
+                        <li>Synthesize and process audio recordings to create train/dev datasets</li>
+                        <li>Train a trigger word detection model and make predictions</li>
+                    </ul>
+
+                    <h1>1. Data Synthesis: Creating a Speech Dataset</h1>
+
+                    <p>A speech dataset should ideally be as close as possible to the application environment. In this
+                        case, the goal is to detect the word "activate" in various environments such as libraries,
+                        homes, offices, and open-spaces. To achieve this, I used recordings with a mix of positive
+                        words ("activate") and negative words (random words other than "activate") with different
+                        background sounds.</p>
+
+                    <h1>1.1 - Listening to the Data</h1>
+
+                    <p>One of my friends helped by recording background noises in various settings like libraries, cafes, restaurants, homes, and
+                        offices. The dataset includes people speaking in a variety of accents. The <code>raw_data</code>
+                        directory contains subsets of raw audio files of positive words, negative words, and background
+                        noise, which are used to synthesize a dataset for training the model.</p>
+
+                    <h1>1.2 - From Audio Recordings to Spectrograms</h1>
+
+                    <p>An audio recording is a long list of numbers measuring air pressure changes detected by a
+                        microphone. We use audio sampled at 44,100 Hz, meaning the microphone gives 44,100 numbers per
+                        second. A 10-second audio clip is represented by 441,000 numbers. To help the sequence model
+                        learn to detect trigger words, we compute a spectrogram of the audio, which tells us how much
+                        different frequencies are present in an audio clip at any moment in time.</p>
+
+                    <p>Here is a figure illustrating the labels in a clip where we have
+                        inserted "activate", "innocent", "activate", and "baby". Note that the positive labels "1" are
+                        associated only with the positive words.</p>
+                    <p><img src="images/audio_labelling.png" alt="" width="600" height="200"
+                        style="display: block; margin-left: auto; margin-right: auto;" />
+
+                    <h1>2. Building the Model</h1>
+
+                    <p>The goal is to build a network that will ingest a spectrogram and output a signal when it detects
+                        the trigger word. This network uses four layers:</p>
+                    <ul>
+                        <li>A convolutional layer</li>
+                        <li>Two GRU layers</li>
+                        <li>A dense layer</li>
+                    </ul>
+
+                    <p>Here is the architecture used.
+                    <img src="images/trigger_architecture.png" alt="" width="1000" height="1000"
+                        style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+                    <h1>2.1 - 1D Convolutional Layer</h1>
+
+                    <p>The 1D convolutional layer inputs the 5511 step spectrogram, each step being a vector of 101
+                        units. It outputs a 1375 step output, which is further processed by multiple layers to get the
+                        final 1375 step output. This layer helps speed up the model by reducing the number of timesteps
+                        the GRU needs to process from 5511 to 1375.</p>
+
+                    <h1>2.2 - GRU, Dense, and Sigmoid</h1>
+
+                    <p>The two GRU layers read the sequence of inputs from left to right. A dense plus sigmoid layer
+                        makes a prediction for \(y^{\langle t \rangle}\). Since \(y\) is a binary value (0 or 1), a
+                        sigmoid output at the last layer estimates the chance of the output being 1, corresponding to
+                        the user having just said "activate".</p>
+
+                    <h1>2.3 - Unidirectional RNN</h1>
+
+                    <p>We use a unidirectional RNN instead of a bidirectional RNN. This is important for trigger word
+                        detection as we want to detect the trigger word almost immediately after it is said. A
+                        bidirectional RNN would require the whole 10 seconds of audio to be recorded before determining
+                        if "activate" was said in the first second.</p>
+                    <p>
+
+                    <p>The total number of parameters in the model is 523,329, with 522,425 trainable and 904
+                        non-trainable parameters.</p>
+
+                    <h1>Input:</h1>
+                    <audio controls>
+                        <source src="audio/input.wav" type="audio/mp3">
+                    </audio>
+                    <h1>Output:</h1>
+                    <audio controls>
+                        <source src="audio/output.wav" type="audio/mp3">
+                    </audio>
+                    
+                </article>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 col-12-medium">
+                        <a name="contact"></a>
+                        <section>
+                            <header>
+                                <h2>Contact</h2>
+                            </header>
+                            <ul class="social">
+                                <li>
+                                    <a class="icon solid fa-envelope"
+                                        href="https://mail.google.com/mail/?view=cm&fs=1&to=sumukh.porwal@gmail.com"><span
+                                            class="label">Email</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-github" href="https://github.com/Sumukh18"><span
+                                            class="label">Github</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-instagram"
+                                        href="https://www.instagram.com/porwal_sumukh/"><span
+                                            class="label">Instagram</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-linkedin-in"
+                                        href="https://www.linkedin.com/in/sumukh-porwal-6a1393186/"><span
+                                            class="label">LinkedIn</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-youtube"
+                                        href="https://www.youtube.com/channel/UCb4YZ6K72Yt9oxVB6j2siUQ"><span
+                                            class="label">YouTube</span></a>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <!-- <div class="col-12">
+
+								<div id="copyright">
+									<ul class="links">
+										<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									</ul>
+								</div>
+
+						</div> -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

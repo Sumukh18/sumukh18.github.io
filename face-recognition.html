@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Projects</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- Add the CSS styles here -->
+    <style>
+        .youtube-card {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .youtube-card iframe {
+            width: 100%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+
+<body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <section id="header">
+            <!-- Logo -->
+            <h1><a href="index.html">Face Recognition using Siamese Network</a></h1>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#experience">Experiences</a></li>
+                    <li class="current"><a href="index.html#projects">Projects</a></li>
+                    <li>
+                        <a
+                            href="https://drive.google.com/file/d/1ckyzWHTXArs-Pzm8bcG7dvX9vJTY7EIS/view?usp=sharing">Resume</a>
+                    </li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#blogs">Blogs</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Main -->
+        <section id="main">
+            <div class="container">
+                <!-- Content -->
+                <article class="box post">
+                    <a href="#" class="image featured"></a>
+
+                    <header>
+                        <p>[Jun'24]</p>
+                    </header>
+                    <h1>Face Recognition Using Siamese Network with Deep Learning</h1>
+                    <p>Face recognition problems commonly fall into one of two categories:</p>
+                    <ul>
+                        <li><strong>Face Verification</strong> - "Is this the claimed person?" For example, at some
+                            airports, you can pass through customs by letting a system scan your passport and then
+                            verifying that you (the person carrying the passport) are the correct person. A mobile phone
+                            that unlocks using your face is also using face verification. This is a 1:1 matching
+                            problem.</li>
+                        <li><strong>Face Recognition</strong> - "Who is this person?" For example, the video lecture
+                            showed a face recognition video of Baidu employees entering the office without needing to
+                            otherwise identify themselves. This is a 1:K matching problem.</li>
+                    </ul>
+                    <p>Siamese Network encodes a face image into a vector of 128 numbers. By
+                        comparing two such vectors, it can be determined if two pictures are of the same person.</p>
+                    <p>By using a 128-neuron fully connected layer as its last layer, the model ensures that the output
+                        is an encoding vector of size 128. You then use the encodings to compare two face images as
+                        follows:</p>
+                    <img src="images/encoding_comparision.png" alt="" width="800" height="350"
+                        style="display: block; margin-left: auto; margin-right: auto;" />
+                    <p>By computing the distance between two encodings and thresholding, you can determine if the two
+                        pictures represent the same person. So, an encoding is a good one if:</p>
+                    <ul>
+                        <li>The encodings of two images of the same person are quite similar to each other.</li>
+                        <li>The encodings of two images of different persons are very different.</li>
+                    </ul>
+                    <p>The triplet loss function formalizes this, and tries to "push" the encodings of two images of the
+                        same person (Anchor and Positive) closer together, while "pulling" the encodings of two images
+                        of different persons (Anchor, Negative) further apart.</p>
+                    <img src="images/triple_loss.png" alt="" width="400" height="200"
+                        style="display: block; margin-left: auto; margin-right: auto;" />
+                    <p>In my project, I implemented a Siamese Network for face recognition using deep learning
+                        techniques. The model was trained to generate these 128-dimensional encodings for face images,
+                        which were then compared to verify or recognize individuals. This method ensures a high accuracy
+                        in distinguishing between different faces, making it suitable for both face verification and
+                        face recognition tasks.</p>
+                    <h1>Implementation Details</h1>
+                    <ul>
+                        <li>Posed face recognition as a binary classification problem</li>
+                        <li>Implemented one-shot learning for a face recognition problem</li>
+                        <li>Applied the triplet loss function to learn a network's parameters in the context of face
+                            recognition</li>
+                        <li>Mapped face images into 128-dimensional encodings using a pretrained model</li>
+                        <li>Performed face verification and face recognition with these encodings</li>
+                    </ul>
+                    <p>One of the key challenges addressed in this project was the development of an effective triplet
+                        loss function that accurately differentiates between similar and dissimilar faces. The network
+                        was fine-tuned to achieve optimal performance, balancing the distance between positive and
+                        negative pairs of images.</p>
+                    <p>This approach has numerous applications, including security systems, user authentication on
+                        devices, and automated attendance systems. The ability to reliably identify or verify
+                        individuals based on their facial features opens up many possibilities for enhancing security
+                        and convenience in various domains.</p>
+                    <p>Overall, this project showcases the potential of Siamese Networks in face recognition and
+                        highlights the effectiveness of deep learning in solving complex problems in computer vision.
+                    </p>
+                    <img src="images/face_output.png" alt="" width="1200" height="400"
+                        style="display: block; margin-left: auto; margin-right: auto;" />
+                </article>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 col-12-medium">
+                        <a name="contact"></a>
+                        <section>
+                            <header>
+                                <h2>Contact</h2>
+                            </header>
+                            <ul class="social">
+                                <li>
+                                    <a class="icon solid fa-envelope"
+                                        href="https://mail.google.com/mail/?view=cm&fs=1&to=sumukh.porwal@gmail.com"><span
+                                            class="label">Email</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-github" href="https://github.com/Sumukh18"><span
+                                            class="label">Github</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-instagram"
+                                        href="https://www.instagram.com/porwal_sumukh/"><span
+                                            class="label">Instagram</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-linkedin-in"
+                                        href="https://www.linkedin.com/in/sumukh-porwal-6a1393186/"><span
+                                            class="label">LinkedIn</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-youtube"
+                                        href="https://www.youtube.com/channel/UCb4YZ6K72Yt9oxVB6j2siUQ"><span
+                                            class="label">YouTube</span></a>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <!-- <div class="col-12">
+
+								<div id="copyright">
+									<ul class="links">
+										<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									</ul>
+								</div>
+
+						</div> -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Projects</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- Add the CSS styles here -->
+    <style>
+        .youtube-card {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .youtube-card iframe {
+            width: 100%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+
+<body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <section id="header">
+            <!-- Logo -->
+            <h1><a href="index.html">Semantic Image Segmentation</a></h1>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#experience">Experiences</a></li>
+                    <li class="current"><a href="index.html#projects">Projects</a></li>
+                    <li>
+                        <a
+                            href="https://drive.google.com/file/d/1ckyzWHTXArs-Pzm8bcG7dvX9vJTY7EIS/view?usp=sharing">Resume</a>
+                    </li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#blogs">Blogs</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Main -->
+        <section id="main">
+            <div class="container">
+                <!-- Content -->
+                <article class="box post">
+                    <a href="#" class="image featured"></a>
+
+                    <header>
+                        <p>[May'24]</p>
+                    </header>
+
+                    <h1>Car Detection Using YOLO</h1>
+                    <p>You are working on a self-driving car. Go you! As a critical component of this project, you'd
+                        like to first build a car detection system. To collect data, I've used a dataset where a mounted camera to the hood
+                        (meaning the front) of the car, takes pictures of the road ahead every few seconds as it
+                        drive around. I've gathered all these images into a folder and labelled them by drawing
+                        bounding boxes around every car you found. Here's an example of what bounding boxes look
+                        like:</p>
+                    <img src="images/bounding-box.png" alt="" width="600" height="300" style="display: block; margin-left: auto; margin-right: auto;"/>
+
+                    <p>There are 80 classes you I the object detector to recognize, they are represented as the class
+                        label <i>c</i> either as an integer from 1 to 80, or as an 80-dimensional vector (with 80
+                        numbers) one component of which is 1, and the rest of which are 0. The video lectures used the
+                        latter representation; in this notebook, you'll use both representations, depending on which is
+                        more convenient for a particular step.</p>
+
+                    <h1>Why YOLO?</h1>
+                    <p>"You Only Look Once" (YOLO) is a popular algorithm because it achieves high accuracy while also
+                        being able to run in real time. This algorithm "only looks once" at the image in the sense that
+                        it requires only one forward propagation pass through the network to make predictions. After
+                        non-max suppression, it then outputs recognized objects together with the bounding boxes.</p>
+
+                    <h1>Model Details</h1>
+                    <h1>Inputs and Outputs</h1>
+                    <p>The input is a batch of images, and each image has the shape (608, 608, 3). The output is a list
+                        of bounding boxes along with the recognized classes. Each bounding box is represented by 6
+                        numbers (<i>p<sub>c</sub>, b<sub>x</sub>, b<sub>y</sub>, b<sub>h</sub>, b<sub>w</sub>, c</i>) as
+                        explained above. If you expand <i>c</i> into an 80-dimensional vector, each bounding box is then
+                        represented by 85 numbers.</p>
+
+                    <h1>Anchor Boxes</h1>
+                    <p>Anchor boxes are chosen by exploring the training data to choose reasonable height/width ratios
+                        that represent the different classes. For this assignment, 5 anchor boxes were chosen
+                        (to cover the 80 classes). The dimension
+                        of the encoding tensor of the second to last dimension based on the anchor boxes is (<i>m,
+                            n<sub>H</sub>, n<sub>W</sub>, anchors, classes</i>).</p>
+
+                    <h1>YOLO Architecture</h1>
+                    <p>The YOLO architecture is: IMAGE (<i>m, 608, 608, 3</i>) -> DEEP CNN -> ENCODING (<i>m, 19, 19, 5,
+                            85</i>).</p>
+
+                    <h1>Encoding</h1>
+                    <p>Let's look in greater detail at what this encoding represents.</p>
+                    <img src="images/encoding_yolo.png" alt="" width="750" height="375" style="display: block; margin-left: auto; margin-right: auto;"/>
+                    <p>If the center/midpoint of an object falls into a grid cell, that grid cell is responsible for
+                        detecting that object.</p>
+
+                    <h1>Visualizing Bounding Boxes</h1>
+                    <p>Another way to visualize YOLO's output is to plot the bounding boxes that it outputs. Doing that
+                        results in a visualization like this:</p>
+                    <img src="images/visualising-bounding-boxes.png" alt="" width="300" height="300" style="display: block; margin-left: auto; margin-right: auto;"/>
+                    <p>Each cell gives you 5 boxes. In total, the model predicts: 19x19x5 = 1805 boxes just by looking once at the image (one forward pass through the network)! Different colors denote different classes.</p>
+
+                    <h1>Non-Max Suppression</h1>
+                    <p>In the figure above, the only boxes plotted are ones for which the model had assigned a high
+                        probability, but this is still too many boxes. So to reduce the algorithm's output to a
+                        much smaller number of detected objects.</p>
+
+                    <p>To do so, I've used non-max suppression. Specifically, carried out these steps:</p>
+                    <ul>
+                        <li>Get rid of boxes with a low score. Meaning, the box is not very confident about detecting a
+                            class, either due to the low probability of any object, or low probability of this
+                            particular class.</li>
+                        <li>Select only one box when several boxes overlap with each other and detect the same object.
+                        </li>
+                    </ul>
+                    <img src="images/non-max_suppression.png" alt="" width="650" height="300" style="display: block; margin-left: auto; margin-right: auto;"/>
+
+                    <hi>Summary for YOLO</hi>
+                    <ul>
+                        <li>Input image (608, 608, 3)</li>
+                        <li>The input image goes through a CNN, resulting in a (19, 19, 5, 85) dimensional output.</li>
+                        <li>After flattening the last two dimensions, the output is a volume of shape (19, 19, 425):
+                            <ul>
+                                <li>Each cell in a 19x19 grid over the input image gives 425 numbers.</li>
+                                <li>425 = 5 x 85 because each cell contains predictions for 5 boxes, corresponding to 5
+                                    anchor boxes, as seen in lecture.</li>
+                                <li>85 = 5 + 80 where 5 is because (<i>p<sub>c</sub>, b<sub>x</sub>, b<sub>y</sub>,
+                                        b<sub>h</sub>, b<sub>w</sub></i>) has 5 numbers, and 80 is the number of classes
+                                    we'd like to detect</li>
+                            </ul>
+                        </li>
+                        <li>Few boxes are selected based on:
+                            <ul>
+                                <li>Score-thresholding: throw away boxes that have detected a class with a score less
+                                    than the threshold</li>
+                                <li>Non-max suppression: Compute the Intersection over Union and avoid selecting
+                                    overlapping boxes</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>This gives the YOLO's final output.</p>
+
+                    
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/atzaqX_PztE?si=k8B17eEfbMM6mgSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display: block; margin: 0 auto; margin-bottom: 20px; margin-top: 20px;"></iframe>
+                    <img src="images/yolo_output.png" alt="" width="400" height="300" style="display: block; margin-left: auto; margin-right: auto;"/>
+                    <img src="images/yolo_output2.png" alt="" width="400" height="300" style="display: block; margin-left: auto; margin-right: auto;"/>
+                </article>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 col-12-medium">
+                        <a name="contact"></a>
+                        <section>
+                            <header>
+                                <h2>Contact</h2>
+                            </header>
+                            <ul class="social">
+                                <li>
+                                    <a class="icon solid fa-envelope"
+                                        href="https://mail.google.com/mail/?view=cm&fs=1&to=sumukh.porwal@gmail.com"><span
+                                            class="label">Email</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-github" href="https://github.com/Sumukh18"><span
+                                            class="label">Github</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-instagram"
+                                        href="https://www.instagram.com/porwal_sumukh/"><span
+                                            class="label">Instagram</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-linkedin-in"
+                                        href="https://www.linkedin.com/in/sumukh-porwal-6a1393186/"><span
+                                            class="label">LinkedIn</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-youtube"
+                                        href="https://www.youtube.com/channel/UCb4YZ6K72Yt9oxVB6j2siUQ"><span
+                                            class="label">YouTube</span></a>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <!-- <div class="col-12">
+
+								<div id="copyright">
+									<ul class="links">
+										<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									</ul>
+								</div>
+
+						</div> -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

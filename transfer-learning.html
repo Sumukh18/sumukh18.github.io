@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Projects</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- Add the CSS styles here -->
+    <style>
+        .youtube-card {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .youtube-card iframe {
+            width: 100%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+
+<body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <section id="header">
+            <!-- Logo -->
+            <h1><a href="index.html">Transfer Learning with MobileNet</a></h1>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#experience">Experiences</a></li>
+                    <li class="current"><a href="index.html#projects">Projects</a></li>
+                    <li>
+                        <a
+                            href="https://drive.google.com/file/d/1ckyzWHTXArs-Pzm8bcG7dvX9vJTY7EIS/view?usp=sharing">Resume</a>
+                    </li>
+                    <li><a href="index.html#courses">Courses</a></li>
+                    <li><a href="index.html#blogs">Blogs</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Main -->
+        <section id="main">
+            <div class="container">
+                <!-- Content -->
+                <article class="box post">
+                    <a href="#" class="image featured"></a>
+
+                    <header>
+                        <p>[May'24]</p>
+                    </header>
+                    <h1>Transfer Learning with MobileNet</h1>
+                    <p>
+                        In this project, I utilized a pre-trained model to customize my own model efficiently and
+                        cost-effectively. The pre-trained model I used is MobileNetV2, which is known for its fast and
+                        computationally efficient performance. MobileNetV2 has been pre-trained on ImageNet, a dataset
+                        containing over 14 million images and 1000 classes.
+                    </p>
+
+                    <h1>1. Create the Dataset and Split it into Training and Validation Sets</h1>
+                    <p>
+                        When training and evaluating deep learning models in Keras, generating a dataset from image
+                        files stored on disk is simple and fast. I read from the directory and created both
+                        training and validation datasets with images for either havinga a Alpaca or Not having an
+                        Alpaca.
+                    </p>
+                    <p>
+                        If specifying a validation split, it's crucial to set the subset for each portion. The training
+                        set was designated with <code>subset='training'</code> and the validation set with
+                        <code>subset='validation'</code>. I ensured that the seeds were set to match each other,
+                        preventing overlap between the training and validation sets.
+                    </p>
+
+                    <h1>2. Preprocess and Augment Training Data</h1>
+                    <p>
+                        I used <code>dataset.prefetch</code> to avoid memory bottlenecks when reading from disk.
+                        Prefetching sets aside some data and keeps it ready for when it's needed, by creating a source
+                        dataset from the input data, applying a transformation to preprocess it, then iterating over the
+                        dataset one element at a time. This streaming process prevents the data from needing to fit into
+                        memory.
+                    </p>
+                    <p>
+                        I used
+                        <code>tf.data.experimental.AUTOTUNE</code> to choose the parameters automatically. Autotune
+                        dynamically tuned the value at runtime, optimizing CPU allocation across all tunable operations.
+                    </p>
+                    <p>
+                        To increase diversity in the training set and help my model learn the data better, I augmented
+                        the images by randomly flipping and rotating them using Keras' Sequential API, which offers
+                        straightforward methods for these kinds of data augmentations with built-in, customizable
+                        preprocessing layers. These layers are saved with the rest of the model and can be re-used
+                        later.
+                    </p>
+
+                    <h1>3. Using MobileNetV2 for Transfer Learning</h1>
+                    <p>
+                        MobileNetV2, trained on ImageNet, is optimized for mobile and other low-power applications. It's
+                        155 layers deep and very efficient for object detection, image segmentation tasks, and
+                        classification tasks like this one. The architecture has three defining characteristics:
+                    <ul>
+                        <li>Depthwise separable convolutions</li>
+                        <li>Thin input and output bottlenecks between layers</li>
+                        <li>Shortcut connections between bottleneck layers</li>
+                    </ul>
+                    </p>
+
+                    <h1>3.1 Inside a MobileNetV2 Convolutional Building Block</h1>
+                    <p>
+                        MobileNetV2 uses depthwise separable convolutions as efficient building blocks. Traditional
+                        convolutions are often resource-intensive, but depthwise separable convolutions reduce the
+                        number of trainable parameters and operations, speeding up convolutions in two steps:
+                    </p>
+                    <ol>
+                        <li>The first step calculates an intermediate result by convolving on each of the channels
+                            independently, known as the depthwise convolution.</li>
+                        <li>The second step merges the outputs of the previous step into one through another
+                            convolution, known as the pointwise convolution. This results in a single output from a
+                            single feature at a time and applies it to all the filters in the output layer.
+                    </ol>
+                    <img src="images/mobilenetv2_architecture.png" alt="" width="800" height="600"
+                        style="display: block; margin-left: auto; margin-right: auto;" />
+                    <p>
+                        Each block consists of an inverted residual structure with a bottleneck at each end. These
+                        bottlenecks encode the intermediate inputs and outputs in a low-dimensional space, preventing
+                        non-linearities from destroying important information. Shortcut connections, similar to those in
+                        traditional residual networks, speed up training and improve predictions by skipping over
+                        intermediate convolutions and connecting the bottleneck layers.
+                    </p>
+
+                    <h1>3.2 Layer Freezing with the Functional API</h1>
+                    <p>
+                        I modified the classifier task to recognize alpacas using a pretrained model in three steps:
+                    <ul>
+                        <li>Deleted the top layer (the classification layer)</li>
+                        <li>Set <code>include_top</code> in <code>base_model</code> as False</li>
+                        <li>Added a new classifier layer</li>
+                    </ul>
+                    </p>
+                    <p>
+                        I trained only one layer by freezing the rest of the network:
+                    <ul>
+                        <li>Set <code>base_model.trainable=False</code> to avoid changing the weights and trained only
+                            the new layer</li>
+                        <li>The new layer replaces the top layer of MobileNetV2 and gives 1 dimentional output vector as
+                            a binary classifier only needs one</li>
+                        <li>Set <code>training</code> in <code>base_model</code> to False to avoid keeping track of
+                            statistics in the batch norm layer</li>
+                    </ul>
+                    </p>
+
+
+
+                    <h1>3.3 Fine-tuning the Model</h1>
+                    <p>
+                        Fine-tuning the model involved re-running the optimizer on the last layers to improve accuracy.
+                        By using a smaller learning rate, I adapted the model more closely to the new data. This
+                        involved unfreezing the layers at the end of the network and re-training the final layers with a
+                        very low learning rate.
+                    </p>
+                    <p>
+                        The intuition here is that the earlier stages of the network train on low-level features like
+                        edges, while the later layers capture high-level features like wispy hair or pointy ears. For
+                        transfer learning, the low-level features remain the same, but the high-level features need to
+                        adapt to the new data. This is like letting the network learn to detect features more related to
+                        your data, such as soft fur or big teeth.
+                    </p>
+                    <p>
+                        To achieve this, I unfroze the final layers and re-ran the optimizer with a smaller learning
+                        rate while keeping all other layers frozen. The exact starting point for the final layers is
+                        arbitrary, and I experimented with different values to find the optimal setup. The key takeaway
+                        is that the later layers contain the fine details specific to the problem.
+                    </p>
+                    <p>
+                        First, I unfroze the base model by setting <code>base_model.trainable=True</code>, chose a layer
+                        to fine-tune from, then re-froze all the layers before it. I ran the model for a few more epochs
+                        and observed an improvement in accuracy.
+                    </p>
+
+                    <h1>Results</h1>
+                    <h1>Before Fine-tuning:</h1>
+                    <img src="images/transfer-learning-output-before.png" alt="" width="500" height="500"
+                        style="display: block; margin-left: auto; margin-right: auto;" />
+
+                    <h1>After Fine-tuning:</h1>
+                    <img src="images/transfer-learning-results.png" alt="" width="500" height="500"
+                        style="display: block; margin-left: auto; margin-right: auto;" />
+
+                    <p>
+                        Total params: 3,538,984<br>
+                        Trainable params: 3,504,872<br>
+                        Non-trainable params: 34,112
+                    </p>
+
+                    <h1>Conclusion</h1>
+                    <p>
+                        In this project, I accomplished the following:
+                    <ul>
+                        <li>Created a dataset from a directory</li>
+                        <li>Augmented data with the Sequential API</li>
+                        <li>Adapted a pretrained model to new data with the Functional API and MobileNetV2</li>
+                        <li>Fine-tuned the classifier's final layers and boosted the model's accuracy</li>
+                    </ul>
+                    </p>
+
+
+                </article>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 col-12-medium">
+                        <a name="contact"></a>
+                        <section>
+                            <header>
+                                <h2>Contact</h2>
+                            </header>
+                            <ul class="social">
+                                <li>
+                                    <a class="icon solid fa-envelope"
+                                        href="https://mail.google.com/mail/?view=cm&fs=1&to=sumukh.porwal@gmail.com"><span
+                                            class="label">Email</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-github" href="https://github.com/Sumukh18"><span
+                                            class="label">Github</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-instagram"
+                                        href="https://www.instagram.com/porwal_sumukh/"><span
+                                            class="label">Instagram</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-linkedin-in"
+                                        href="https://www.linkedin.com/in/sumukh-porwal-6a1393186/"><span
+                                            class="label">LinkedIn</span></a>
+                                </li>
+                                <li>
+                                    <a class="icon brands fa-youtube"
+                                        href="https://www.youtube.com/channel/UCb4YZ6K72Yt9oxVB6j2siUQ"><span
+                                            class="label">YouTube</span></a>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <!-- <div class="col-12">
+
+								<div id="copyright">
+									<ul class="links">
+										<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									</ul>
+								</div>
+
+						</div> -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

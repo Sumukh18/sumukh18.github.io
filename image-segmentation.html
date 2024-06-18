@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Projects</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- Add the CSS styles here -->
+    <style>
+      .youtube-card {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .youtube-card iframe {
+        width: 100%;
+        max-width: 800px;
+      }
+    </style>
+  </head>
+
+  <body class="no-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <section id="header">
+        <!-- Logo -->
+        <h1><a href="index.html">Semantic Image Segmentation</a></h1>
+
+        <!-- Nav -->
+        <nav id="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#experience">Experiences</a></li>
+            <li class="current"><a href="index.html#projects">Projects</a></li>
+            <li>
+              <a
+                href="https://drive.google.com/file/d/1ckyzWHTXArs-Pzm8bcG7dvX9vJTY7EIS/view?usp=sharing"
+                >Resume</a
+              >
+            </li>
+            <li><a href="index.html#courses">Courses</a></li>
+            <li><a href="index.html#blogs">Blogs</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <!-- Main -->
+      <section id="main">
+        <div class="container">
+          <!-- Content -->
+          <article class="box post">
+            <a href="#" class="image featured"></a>
+
+            <header>
+              <p>[May'24 - Jun'24]</p>
+            </header>
+            <h1>
+              Semantic Image Segmentation using Deep Learning and U-Net
+              Architecture
+            </h1>
+
+            <p>
+              In this project, I have built a U-Net, a specialized Convolutional
+              Neural Network (CNN) designed for precise, pixel-level image
+              segmentation. The objective is to predict a label for every single
+              pixel in an image, specifically using data from a self-driving car
+              dataset.
+            </p>
+
+            <h1>What is Semantic Image Segmentation?</h1>
+
+            <p>
+              Semantic image segmentation is a form of image classification
+              that, unlike object detection which uses bounding boxes, labels
+              each pixel in the image with a corresponding class. This method
+              provides a much finer and accurate understanding of the image by
+              creating a precise mask for each object. For instance, in our
+              dataset, the "Car" class is marked with a dark blue mask, and the
+              "Person" class is marked with a red mask.
+            </p>
+
+            <p>
+              This level of detail is crucial for self-driving cars, which need
+              to interpret their surroundings with pixel-perfect accuracy to
+              navigate safely. They must recognize and differentiate between
+              various objects such as other cars, pedestrians, and obstacles to
+              make informed decisions like changing lanes or avoiding hazards.
+            </p>
+
+            <h1>The U-Net Architecture</h1>
+
+            <p>
+              The U-Net architecture, first proposed in 2015 for biomedical
+              image segmentation, has proven highly effective for semantic
+              segmentation tasks. Its architecture consists of three main parts:
+            </p>
+
+            <img
+              src="images/unet.png"
+              alt=""
+              width="700"
+              height="400"
+              style="display: block; margin: 0 auto"
+            />
+
+            <h1>Contracting Path (Encoder containing downsampling steps):</h1>
+            <p1
+              >Images are first fed through several convolutional layers which
+              reduce height and width, while growing the number of channels. The
+              contracting path follows a regular CNN architecture, with
+              convolutional layers, their activations, and pooling layers to
+              downsample the image and extract its features. In detail, it
+              consists of the repeated application of two 3 x 3 same padding
+              convolutions, each followed by a rectified linear unit (ReLU) and
+              a 2 x 2 max pooling operation with stride 2 for downsampling. At
+              each downsampling step, the number of feature channels is doubled.
+            </p1>
+
+			<h1>Expansive Path (Decoder containing upsampling steps):</h1>
+            <p1
+              >The expanding path performs the opposite operation of the contracting path, growing the image back to its original size, while shrinking the channels gradually.
+
+			  In detail, each step in the expanding path upsamples the feature map, followed by a 2 x 2 convolution (the transposed convolution). This transposed convolution halves the number of feature channels, while growing the height and width of the image.
+			  
+			  Next is a concatenation with the correspondingly cropped feature map from the contracting path, and two 3 x 3 convolutions, each followed by a ReLU. You need to perform cropping to handle the loss of border pixels in every convolution.
+            </p1>
+
+            <h1>Final Feature Mapping Block: </h1>
+            <p>
+				In the final layer, a 1x1 convolution is used to map each 64-component feature vector to the desired number of classes. The channel dimensions from the previous layer correspond to the number of filters used, so when you use 1x1 convolutions, you can transform that dimension by choosing an appropriate number of 1x1 filters. When this idea is applied to the last layer, you can reduce the channel dimensions to have one layer per class.</p>
+
+				<p>The U-Net network has 23 convolutional layers and 8,640,471 (trainable) parameters. The model can be used for various applications, such as autonomous driving, medical imaging, and satellite image analysis.
+            </p>
+
+            <h1>Implementation Details</h1>
+
+            <p>
+              For this project, I implemented semantic image segmentation on the
+              CARLA self-driving car dataset. The dataset consists of images
+              captured from a simulated urban driving environment, providing a
+              diverse and challenging set of scenarios for training the model.
+            </p>
+
+            <h1>Steps Involved in the Project:</h1>
+            <ul>
+              <li>
+                <strong>Data Preparation:</strong>
+                <ul>
+                  <li>
+                    Preprocessing the CARLA dataset to create training and
+                    validation sets.
+                  </li>
+                  <li>
+                    To make the input uniform, convert any input image to shape
+                    (96, 128).
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Building the U-Net Model:</strong>
+                <ul>
+                  <li>
+                    Implementing the U-Net architecture from scratch using tensorflow a
+                    deep learning framework.
+                  </li>
+                  <li>
+                    Configuring the model with "SparseCategoricalCrossentropy" loss function and "adam"
+                    optimization techniques to handle multi-class segmentation.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Training the Model:</strong>
+                <ul>
+                  <li>Training the model on the prepared dataset.</li>
+                  <li>
+                    Monitoring training with "accuracy" metric to ensure the model learns to segment correctly.
+                  </li>
+                  <li> The model is trained for 30 epochs with a batch size of 32.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Evaluation and Results:</strong>
+                <ul>
+                  <li>
+                    Testing the model on unseen data to evaluate its
+                    performance.
+                  </li>
+                  <li>
+                    Visualizing the results by comparing the predicted masks
+                    with the true masks to assess the accuracy and quality of
+                    the segmentation.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+            <img
+              src="images/unet_output3.png"
+              alt=""
+              width="1200"
+              height="300"
+            />
+            <img
+              src="images/unet_output2.png"
+              alt=""
+              width="1200"
+              height="300"
+            />
+          </article>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <section id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-4 col-12-medium">
+              <a name="contact"></a>
+              <section>
+                <header>
+                  <h2>Contact</h2>
+                </header>
+                <ul class="social">
+                  <li>
+                    <a
+                      class="icon solid fa-envelope"
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=sumukh.porwal@gmail.com"
+                      ><span class="label">Email</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="icon brands fa-github"
+                      href="https://github.com/Sumukh18"
+                      ><span class="label">Github</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="icon brands fa-instagram"
+                      href="https://www.instagram.com/porwal_sumukh/"
+                      ><span class="label">Instagram</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="icon brands fa-linkedin-in"
+                      href="https://www.linkedin.com/in/sumukh-porwal-6a1393186/"
+                      ><span class="label">LinkedIn</span></a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="icon brands fa-youtube"
+                      href="https://www.youtube.com/channel/UCb4YZ6K72Yt9oxVB6j2siUQ"
+                      ><span class="label">YouTube</span></a
+                    >
+                  </li>
+                </ul>
+              </section>
+            </div>
+            <!-- <div class="col-12">
+
+								<div id="copyright">
+									<ul class="links">
+										<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+									</ul>
+								</div>
+
+						</div> -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
