@@ -5,138 +5,182 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Experiences</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
 
-		<!-- Add the CSS styles here -->
-		<style>
-			.youtube-card {
-				margin-top: 20px;
-				text-align: center;
-			}
-	
-			.youtube-card iframe {
-				width: 100%;
-				max-width: 800px;
-			}
-		</style>
-	</head>
-	<body class="no-sidebar is-preload">
-		<div id="page-wrapper">
+<head>
+	<title>Experiences</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
 
-			<!-- Header -->
-				<section id="header">
+	<!-- Add the CSS styles here -->
+	<style>
+		.youtube-card {
+			margin-top: 20px;
+			text-align: center;
+		}
 
-					<!-- Logo -->
-						<h1><a href="index.html">Design and Analysis of an EVTOL Aircraft Wing-Bulkhead assembly</a></h1>
+		.youtube-card iframe {
+			width: 100%;
+			max-width: 800px;
+		}
+	</style>
+</head>
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="index.html">Home</a></li>
-								<li class="current"><a href="index.html#experience">Experiences</a></li>
-								<li><a href="index.html#projects">Projects</a></li>
-								<li><a href="pdfs/Resume - June 2024.pdf" target="_blank">Resume</a></li>
-								<li><a href="index.html#courses">Courses</a></li>
-								<li><a href="index.html#blogs">Blogs</a></li>
-								<li><a href="index.html#contact">Contact</a></li>
+<body class="no-sidebar is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<section id="header">
+
+			<!-- Logo -->
+			<h1><a href="index.html">Design and Analysis of an EVTOL Aircraft Wing-Bulkhead assembly</a></h1>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li class="current"><a href="index.html#experience">Experiences</a></li>
+					<li><a href="index.html#projects">Projects</a></li>
+					<li><a href="pdfs/Resume - June 2024.pdf" target="_blank">Resume</a></li>
+					<li><a href="index.html#courses">Courses</a></li>
+					<li><a href="index.html#blogs">Blogs</a></li>
+					<li><a href="index.html#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+		</section>
+
+		<!-- Main -->
+		<section id="main">
+			<div class="container">
+
+				<!-- Content -->
+				<article class="box post">
+					<a href="#" class="image featured"></a>
+
+					<header>
+						<h3>Guide: Dr. Subba Reddy Daggumati, IIT Tirupati</h3>
+						<p>[Jun'22 - Aug'22]</p>
+					</header>
+					<h4>Project Objectives:</h4>
+					<p>
+						The primary focus of this project was twofold: the creation of a comprehensive Computer-Aided
+						Design (CAD) model and the execution of Finite Element Analysis (FEA) on the primary bulkhead of
+						the EVTOL aircraft. This bulkhead, serving as the aircraft's critical load-bearing component,
+						held central importance in ensuring structural integrity.
+					</p>
+
+					<h4>CAD Model Development:</h4>
+					<p>
+						Commencing the project, I first acquired proficiency in CAD modeling software, CATIA, as the
+						initial step. Using this software, I meticulously crafted a detailed and precise 3D CAD model of
+						the EVTOL aircraft's primary bulkhead. This CAD model formed the fundamental basis for
+						subsequent analyses.
+					</p>
+
+					<h4>Finite Element Analysis (FEA):</h4>
+					<p>
+						With the CAD model firmly established, I embarked on conducting an extensive Finite Element
+						Analysis utilizing the powerful FEA software, Abaqus. The primary aim was to simulate the
+						mechanical response of the bulkhead under a variety of applied loads and environmental
+						conditions. This process involved the creation of finite element meshes, defining material
+						properties, specifying boundary conditions, load cases, and executing simulations to
+						comprehensively assess the structural integrity and performance of the bulkhead.
+					</p>
+
+					<h4>CAD Model Optimization:</h4>
+					<p>
+						To optimize the CAD model, various modifications were made to the bulkhead, including altering
+						the number and positions of bolt holes. This iterative process was aimed at determining which
+						model exhibited the least deformation and minimized stresses, ultimately enhancing the
+						bulkhead's design.
+					</p>
+
+					<h4>Load Conditions:</h4>
+					<p>
+						To minimize computational costs and obtain results closely aligned with reality, different
+						loading configurations were explored, including:
+					</p>
+					<ul>
+						<li>Applying a single moment at the geometric center of the bolt holes on each side.</li>
+						<li>Imposing moments on the surface of each bolt hole.</li>
+						<li>Simulating real-world scenarios by attaching parts with bolts and applying force at the
+							wing's end to generate moments at the joint.</li>
+					</ul>
+
+					<h4>Boundary Conditions:</h4>
+					<p>
+						Similarly, various Boundary Conditions were investigated to optimize computational efficiency
+						while maintaining accuracy:
+					</p>
+					<ul>
+						<li>Directly attaching the bulkhead to the wing via surface contact and applying Eacastre
+							boundary conditions to the support bolt holes.</li>
+						<li>Connecting the bulkhead to the wing via surface contact, including the bolt holes, and
+							applying Eacastre boundary conditions to the supporting bolt holes.</li>
+						<li>Emulating real-world conditions by attaching the bulkhead to the wing using bolts and
+							applying Eacastre boundary conditions to the supporting bolt holes.</li>
+					</ul>
+
+					<p>
+						These meticulous variations in both load and boundary conditions allowed for a comprehensive
+						exploration of the bulkhead's performance under various scenarios, enabling us to refine its
+						design and ensure its suitability for its critical role in the EVTOL aircraft.
+					</p>
+
+					<!-- <img src="images/bulkhead_bc.png" alt="" width="550" height="333" /> -->
+					<img src="images/bulkhead_bc.png" alt=""
+						style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+					<!-- <img src="images/bulkhead_material.png" alt="" width="500" height="333" /> -->
+					<img src="images/bulkhead_material.png" alt=""
+						style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+					<!-- <img src="images/bulkhead.png" alt="" width="550" height="333" /> -->
+					<img src="images/bulkhead.png" alt=""
+						style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+					<!-- <img src="images/wing_attachment.png" alt="" width="500" height="333" /> -->
+					<img src="images/wing_attachment.png" alt=""
+						style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+					<!-- <img src="images/wing_assembly.png" alt="" width="700" height="400"
+						style="display: block; margin: 0 auto;" /> -->
+					<img src="images/wing_assembly.png" alt=""
+						style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+
+				</article>
+
+			</div>
+
+		</section>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-4 col-12-medium">
+						<a name="contact"></a>
+						<section>
+							<header>
+								<h2>Contact</h2>
+							</header>
+							<ul class="social">
+								<li><a class="icon solid fa-envelope"
+										href="https://mail.google.com/mail/?view=cm&fs=1&to=sumukh.porwal@gmail.com"><span
+											class="label">Email</span></a></li>
+								<li><a class="icon brands fa-github" href="https://github.com/Sumukh18"><span
+											class="label">Github</span></a></li>
+								<li><a class="icon brands fa-instagram"
+										href="https://www.instagram.com/porwal_sumukh/"><span
+											class="label">Instagram</span></a></li>
+								<li><a class="icon brands fa-linkedin-in"
+										href="https://www.linkedin.com/in/sumukh-porwal-6a1393186/"><span
+											class="label">LinkedIn</span></a></li>
+								<li><a class="icon brands fa-youtube"
+										href="https://www.youtube.com/channel/UCb4YZ6K72Yt9oxVB6j2siUQ"><span
+											class="label">YouTube</span></a></li>
 							</ul>
-						</nav>
-
-				</section>
-
-			<!-- Main -->
-				<section id="main">
-					<div class="container">
-
-						<!-- Content -->
-							<article class="box post">
-								<a href="#" class="image featured"></a>
-								
-								<header>
-									<h3>Guide: Dr. Subba Reddy Daggumati, IIT Tirupati</h3>
-									<p>[Jun'22 - Aug'22]</p>
-								</header>
-								<h4>Project Objectives:</h4>
-								<p>
-									The primary focus of this project was twofold: the creation of a comprehensive Computer-Aided Design (CAD) model and the execution of Finite Element Analysis (FEA) on the primary bulkhead of the EVTOL aircraft. This bulkhead, serving as the aircraft's critical load-bearing component, held central importance in ensuring structural integrity.
-								</p>
-
-								<h4>CAD Model Development:</h4>
-								<p>
-									Commencing the project, I first acquired proficiency in CAD modeling software, CATIA, as the initial step. Using this software, I meticulously crafted a detailed and precise 3D CAD model of the EVTOL aircraft's primary bulkhead. This CAD model formed the fundamental basis for subsequent analyses.
-								</p>
-
-								<h4>Finite Element Analysis (FEA):</h4>
-								<p>
-									With the CAD model firmly established, I embarked on conducting an extensive Finite Element Analysis utilizing the powerful FEA software, Abaqus. The primary aim was to simulate the mechanical response of the bulkhead under a variety of applied loads and environmental conditions. This process involved the creation of finite element meshes, defining material properties, specifying boundary conditions, load cases, and executing simulations to comprehensively assess the structural integrity and performance of the bulkhead.
-								</p>
-
-								<h4>CAD Model Optimization:</h4>
-								<p>
-									To optimize the CAD model, various modifications were made to the bulkhead, including altering the number and positions of bolt holes. This iterative process was aimed at determining which model exhibited the least deformation and minimized stresses, ultimately enhancing the bulkhead's design.
-								</p>
-
-								<h4>Load Conditions:</h4>
-								<p>
-									To minimize computational costs and obtain results closely aligned with reality, different loading configurations were explored, including:
-								</p>
-								<ul>
-									<li>Applying a single moment at the geometric center of the bolt holes on each side.</li>
-									<li>Imposing moments on the surface of each bolt hole.</li>
-									<li>Simulating real-world scenarios by attaching parts with bolts and applying force at the wing's end to generate moments at the joint.</li>
-								</ul>
-
-								<h4>Boundary Conditions:</h4>
-								<p>
-									Similarly, various Boundary Conditions were investigated to optimize computational efficiency while maintaining accuracy:
-								</p>
-								<ul>
-									<li>Directly attaching the bulkhead to the wing via surface contact and applying Eacastre boundary conditions to the support bolt holes.</li>
-									<li>Connecting the bulkhead to the wing via surface contact, including the bolt holes, and applying Eacastre boundary conditions to the supporting bolt holes.</li>
-									<li>Emulating real-world conditions by attaching the bulkhead to the wing using bolts and applying Eacastre boundary conditions to the supporting bolt holes.</li>
-								</ul>
-
-								<p>
-									These meticulous variations in both load and boundary conditions allowed for a comprehensive exploration of the bulkhead's performance under various scenarios, enabling us to refine its design and ensure its suitability for its critical role in the EVTOL aircraft.
-								</p>
-
-								<img src="images/bulkhead_bc.png" alt="" width="550" height="333"/>
-								<img src="images/bulkhead_material.png" alt="" width="500" height="333"/>
-								<img src="images/bulkhead.png" alt="" width="550" height="333"/>
-								<img src="images/wing_attachment.png" alt="" width="500" height="333"/>
-								<img src="images/wing_assembly.png" alt="" width="700" height="400" style="display: block; margin: 0 auto;"/>
-
-							</article>
-
+						</section>
 					</div>
-
-				</section>
-
-			<!-- Footer -->
-			<section id="footer">
-				<div class="container">
-					<div class="row">
-
-						<div class="col-4 col-12-medium">
-							<a name="contact"></a>
-							<section>
-								<header>
-									<h2>Contact</h2>
-								</header>
-								<ul class="social">
-									<li><a class="icon solid fa-envelope" href="https://mail.google.com/mail/?view=cm&fs=1&to=sumukh.porwal@gmail.com"><span class="label">Email</span></a></li>
-									<li><a class="icon brands fa-github" href="https://github.com/Sumukh18"><span class="label">Github</span></a></li>
-									<li><a class="icon brands fa-instagram" href="https://www.instagram.com/porwal_sumukh/"><span class="label">Instagram</span></a></li>
-									<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/sumukh-porwal-6a1393186/"><span class="label">LinkedIn</span></a></li>
-									<li><a class="icon brands fa-youtube" href="https://www.youtube.com/channel/UCb4YZ6K72Yt9oxVB6j2siUQ"><span class="label">YouTube</span></a></li>
-								</ul>
-							</section>
-						</div>
-						<!-- <div class="col-12">
+					<!-- <div class="col-12">
 
 								<div id="copyright">
 									<ul class="links">
@@ -145,19 +189,20 @@
 								</div>
 
 						</div> -->
-					</div>
 				</div>
-			</section>
+			</div>
+		</section>
 
-		</div>
+	</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 
-	</body>
+</body>
+
 </html>

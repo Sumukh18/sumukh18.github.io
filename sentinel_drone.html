@@ -5,120 +5,191 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Projects</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
 
-		<!-- Add the CSS styles here -->
-		<style>
-			.youtube-card {
-				margin-top: 20px;
-				text-align: center;
-			}
-	
-			.youtube-card iframe {
-				width: 100%;
-				max-width: 800px;
-			}
-		</style>
-	</head>
-	<body class="no-sidebar is-preload">
-		<div id="page-wrapper">
+<head>
+	<title>Projects</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
 
-			<!-- Header -->
-				<section id="header">
+	<!-- Add the CSS styles here -->
+	<style>
+		.youtube-card {
+			margin-top: 20px;
+			text-align: center;
+		}
 
-					<!-- Logo -->
-						<h1><a href="index.html">Sentinel Drone</a></h1>
+		.youtube-card iframe {
+			width: 100%;
+			max-width: 800px;
+		}
+	</style>
+</head>
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="index.html">Home</a></li>
-								<li><a href="index.html#experience">Experiences</a></li>
-								<li class="current"><a href="index.html#projects">Projects</a></li>
-								<li><a href="pdfs/Resume - June 2024.pdf" target="_blank">Resume</a></li>
-								<li><a href="index.html#courses">Courses</a></li>
-								<li><a href="index.html#blogs">Blogs</a></li>
-								<li><a href="index.html#contact">Contact</a></li>
-							</ul>
-						</nav>
+<body class="no-sidebar is-preload">
+	<div id="page-wrapper">
 
-				</section>
+		<!-- Header -->
+		<section id="header">
 
-			<!-- Main -->
-				<section id="main">
-					<div class="container">
+			<!-- Logo -->
+			<h1><a href="index.html">Sentinel Drone</a></h1>
 
-						<!-- Content -->
-							<article class="box post">
-								<a href="#" class="image featured"></a>
-								
-								<header>
-									<h3>Guide: Eyantra - IIT Bombay</h3>
-									<p>[Sept'22 - Feb'23]</p>
-								</header>
-								<p>
-									The project aimed at revolutionizing surveillance and emergency response through the development of an advanced drone system. The primary objective was to create a versatile drone that could autonomously monitor and report various incidents, such as accidents and fires, as well as detect any unusual activities or anomalies in a given area. To achieve this, we harnessed the power of image processing technology and seamlessly integrated it with a Geographic Information System (GIS) for efficient data management and analysis.									
-								</p>
-								<p>
-									The journey began with the software development phase, where we meticulously designed and implemented the core functionalities of our surveillance drone. We chose to utilize ROS Noetic, a highly versatile and widely adopted robotics framework, as the foundation of our software architecture. Additionally, we employed Gazebo, a powerful robotics simulation environment, to rigorously test and refine our algorithms before transitioning to the hardware phase.
-								</p>
-								<p>
-									During the simulation phase, we crafted a virtual environment in Gazebo to emulate real-world scenarios. This allowed us to evaluate the drone's performance in a controlled environment, fine-tune its navigation algorithms, and optimize its image processing capabilities. It also facilitated the development of a robust communication system for data transmission between the drone and the GIS platform.
-								</p>
-								<p>
-									In order to ensure precise control of the drone's position and orientation in 3D space, we implemented a Proportional-Integral-Derivative (PID) controller during the simulation phase. This PID controller played a pivotal role in stabilizing and maneuvering the drone, enhancing its overall performance and responsiveness. To achieve this, we integrated a sophisticated whycon marker detection system. A high-resolution camera mounted on the ceiling captured real-time images of the drone's flight area. The whycon marker, a distinctive visual marker affixed to the drone's body, served as a reference point. By analyzing the marker's position and orientation in the camera's field of view, our PID controller made rapid and precise adjustments to the drone's position, roll, pitch, and yaw. This not only allowed for accurate tracking of the drone's movements but also ensured its ability to maintain stable flight even in challenging conditions, making it a highly reliable tool for automated surveillance and incident response in real-world environments.
-								</p>
-								<p>
-									Once we were satisfied with the results in the virtual realm, we proceeded to the hardware implementation phase. Here, we assembled a compact nano drone equipped with the ESC, camera, Bannan Pi, Li-Po battery, brushless motors, and propellers to replicate the functionality developed in the simulation. This physical drone was designed to execute the same surveillance tasks as its virtual counterpart but in real-world environments, ensuring the robustness and reliability of our system.
-								</p>
-								<p>
-									The implementation of PID control in hardware differed from the simulation phase due to the real-world constraints and dynamics of the nano drone. In the hardware implementation, we had to account for the physical limitations of the drone's sensors, actuators, and the environment it operated in. We fine-tuned the PID parameters through extensive testing and experimentation in real-world conditions. The key challenge was dealing with external factors such as wind, humidity, and variations in lighting conditions that could affect the drone's performance. This required a robust and adaptive PID control system that could dynamically adjust its parameters to maintain stable flight.
-								</p>
-								<p>
-									In practice, our surveillance drone autonomously patrols designated areas, capturing images and video footage through its onboard cameras. These images are processed in real-time using computer vision techniques to identify accidents, fires, or any unusual activities. When an incident is detected, the drone initiates an immediate response by transmitting the relevant data to the GIS platform for analysis and visualization.
-								</p>
-								<p>
-									The integration with the GIS platform is a pivotal component of our system. It enables the collected data to be efficiently managed, geospatially analyzed, and shared with relevant control station for prompt action. GIS not only serves as a central hub for data storage but also provides a comprehensive visual representation of incidents and anomalies, aiding decision-makers in coordinating effective responses.
-								</p>
-								<p>
-									In conclusion, our project represents a fusion of robotics, image processing, and GIS technologies. By developing a drone capable of autonomously surveilling and reporting incidents, we have taken a step towards enhancing emergency response, public safety, and overall situational awareness in various contexts, from disaster management to urban surveillance. Our approach, coupled with the thorough simulation and hardware validation, ensures the reliability and efficiency of our automated surveillance system in real-world applications.
-								</p>
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="index.html#experience">Experiences</a></li>
+					<li class="current"><a href="index.html#projects">Projects</a></li>
+					<li><a href="pdfs/Resume - June 2024.pdf" target="_blank">Resume</a></li>
+					<li><a href="index.html#courses">Courses</a></li>
+					<li><a href="index.html#blogs">Blogs</a></li>
+					<li><a href="index.html#contact">Contact</a></li>
+				</ul>
+			</nav>
 
-								<img src="images/Sentinel_Drone.png" alt="" width="360" height="360"/>
-								<img src="images/drone_cam_view.png" alt="" width="640" height="360"/>
+		</section>
 
-								<iframe width="560" height="315" src="https://www.youtube.com/embed/8Q7qgBARj_E?si=mgp4vQuq1_llqQl9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; margin: 0 auto; margin-bottom: 20px; margin-top: 20px;"></iframe>
-							</article>
+		<!-- Main -->
+		<section id="main">
+			<div class="container">
 
+				<!-- Content -->
+				<article class="box post">
+					<a href="#" class="image featured"></a>
+
+					<header>
+						<h3>Guide: Eyantra - IIT Bombay</h3>
+						<p>[Sept'22 - Feb'23]</p>
+					</header>
+					<p>
+						The project aimed at revolutionizing surveillance and emergency response through the development
+						of an advanced drone system. The primary objective was to create a versatile drone that could
+						autonomously monitor and report various incidents, such as accidents and fires, as well as
+						detect any unusual activities or anomalies in a given area. To achieve this, we harnessed the
+						power of image processing technology and seamlessly integrated it with a Geographic Information
+						System (GIS) for efficient data management and analysis.
+					</p>
+					<p>
+						The journey began with the software development phase, where we meticulously designed and
+						implemented the core functionalities of our surveillance drone. We chose to utilize ROS Noetic,
+						a highly versatile and widely adopted robotics framework, as the foundation of our software
+						architecture. Additionally, we employed Gazebo, a powerful robotics simulation environment, to
+						rigorously test and refine our algorithms before transitioning to the hardware phase.
+					</p>
+					<p>
+						During the simulation phase, we crafted a virtual environment in Gazebo to emulate real-world
+						scenarios. This allowed us to evaluate the drone's performance in a controlled environment,
+						fine-tune its navigation algorithms, and optimize its image processing capabilities. It also
+						facilitated the development of a robust communication system for data transmission between the
+						drone and the GIS platform.
+					</p>
+					<p>
+						In order to ensure precise control of the drone's position and orientation in 3D space, we
+						implemented a Proportional-Integral-Derivative (PID) controller during the simulation phase.
+						This PID controller played a pivotal role in stabilizing and maneuvering the drone, enhancing
+						its overall performance and responsiveness. To achieve this, we integrated a sophisticated
+						whycon marker detection system. A high-resolution camera mounted on the ceiling captured
+						real-time images of the drone's flight area. The whycon marker, a distinctive visual marker
+						affixed to the drone's body, served as a reference point. By analyzing the marker's position and
+						orientation in the camera's field of view, our PID controller made rapid and precise adjustments
+						to the drone's position, roll, pitch, and yaw. This not only allowed for accurate tracking of
+						the drone's movements but also ensured its ability to maintain stable flight even in challenging
+						conditions, making it a highly reliable tool for automated surveillance and incident response in
+						real-world environments.
+					</p>
+					<p>
+						Once we were satisfied with the results in the virtual realm, we proceeded to the hardware
+						implementation phase. Here, we assembled a compact nano drone equipped with the ESC, camera,
+						Bannan Pi, Li-Po battery, brushless motors, and propellers to replicate the functionality
+						developed in the simulation. This physical drone was designed to execute the same surveillance
+						tasks as its virtual counterpart but in real-world environments, ensuring the robustness and
+						reliability of our system.
+					</p>
+					<p>
+						The implementation of PID control in hardware differed from the simulation phase due to the
+						real-world constraints and dynamics of the nano drone. In the hardware implementation, we had to
+						account for the physical limitations of the drone's sensors, actuators, and the environment it
+						operated in. We fine-tuned the PID parameters through extensive testing and experimentation in
+						real-world conditions. The key challenge was dealing with external factors such as wind,
+						humidity, and variations in lighting conditions that could affect the drone's performance. This
+						required a robust and adaptive PID control system that could dynamically adjust its parameters
+						to maintain stable flight.
+					</p>
+					<p>
+						In practice, our surveillance drone autonomously patrols designated areas, capturing images and
+						video footage through its onboard cameras. These images are processed in real-time using
+						computer vision techniques to identify accidents, fires, or any unusual activities. When an
+						incident is detected, the drone initiates an immediate response by transmitting the relevant
+						data to the GIS platform for analysis and visualization.
+					</p>
+					<p>
+						The integration with the GIS platform is a pivotal component of our system. It enables the
+						collected data to be efficiently managed, geospatially analyzed, and shared with relevant
+						control station for prompt action. GIS not only serves as a central hub for data storage but
+						also provides a comprehensive visual representation of incidents and anomalies, aiding
+						decision-makers in coordinating effective responses.
+					</p>
+					<p>
+						In conclusion, our project represents a fusion of robotics, image processing, and GIS
+						technologies. By developing a drone capable of autonomously surveilling and reporting incidents,
+						we have taken a step towards enhancing emergency response, public safety, and overall
+						situational awareness in various contexts, from disaster management to urban surveillance. Our
+						approach, coupled with the thorough simulation and hardware validation, ensures the reliability
+						and efficiency of our automated surveillance system in real-world applications.
+					</p>
+
+					<!-- <img src="images/Sentinel_Drone.png" alt="" width="360" height="360"/> -->
+					<img src="images/Sentinel_Drone.png" alt=""
+						style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+					<!-- <img src="images/drone_cam_view.png" alt="" width="640" height="360"/> -->
+					<img src="images/drone_cam_view.png" alt=""
+						style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+
+					<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/8Q7qgBARj_E?si=mgp4vQuq1_llqQl9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: block; margin: 0 auto; margin-bottom: 20px; margin-top: 20px;"></iframe> -->
+					<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; margin: 20px 0;">
+						<iframe src="https://www.youtube.com/embed/8Q7qgBARj_E?si=mgp4vQuq1_llqQl9"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+						</iframe>
 					</div>
+				</article>
 
-				</section>
+			</div>
 
-			<!-- Footer -->
-			<section id="footer">
-				<div class="container">
-					<div class="row">
+		</section>
 
-						<div class="col-4 col-12-medium">
-							<a name="contact"></a>
-							<section>
-								<header>
-									<h2>Contact</h2>
-								</header>
-								<ul class="social">
-									<li><a class="icon solid fa-envelope" href="https://mail.google.com/mail/?view=cm&fs=1&to=sumukh.porwal@gmail.com"><span class="label">Email</span></a></li>
-									<li><a class="icon brands fa-github" href="https://github.com/Sumukh18"><span class="label">Github</span></a></li>
-									<li><a class="icon brands fa-instagram" href="https://www.instagram.com/porwal_sumukh/"><span class="label">Instagram</span></a></li>
-									<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/sumukh-porwal-6a1393186/"><span class="label">LinkedIn</span></a></li>
-									<li><a class="icon brands fa-youtube" href="https://www.youtube.com/channel/UCb4YZ6K72Yt9oxVB6j2siUQ"><span class="label">YouTube</span></a></li>
-								</ul>
-							</section>
-						</div>
-						<!-- <div class="col-12">
+		<!-- Footer -->
+		<section id="footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-4 col-12-medium">
+						<a name="contact"></a>
+						<section>
+							<header>
+								<h2>Contact</h2>
+							</header>
+							<ul class="social">
+								<li><a class="icon solid fa-envelope"
+										href="https://mail.google.com/mail/?view=cm&fs=1&to=sumukh.porwal@gmail.com"><span
+											class="label">Email</span></a></li>
+								<li><a class="icon brands fa-github" href="https://github.com/Sumukh18"><span
+											class="label">Github</span></a></li>
+								<li><a class="icon brands fa-instagram"
+										href="https://www.instagram.com/porwal_sumukh/"><span
+											class="label">Instagram</span></a></li>
+								<li><a class="icon brands fa-linkedin-in"
+										href="https://www.linkedin.com/in/sumukh-porwal-6a1393186/"><span
+											class="label">LinkedIn</span></a></li>
+								<li><a class="icon brands fa-youtube"
+										href="https://www.youtube.com/channel/UCb4YZ6K72Yt9oxVB6j2siUQ"><span
+											class="label">YouTube</span></a></li>
+							</ul>
+						</section>
+					</div>
+					<!-- <div class="col-12">
 
 								<div id="copyright">
 									<ul class="links">
@@ -127,19 +198,20 @@
 								</div>
 
 						</div> -->
-					</div>
 				</div>
-			</section>
+			</div>
+		</section>
 
-		</div>
+	</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 
-	</body>
+</body>
+
 </html>

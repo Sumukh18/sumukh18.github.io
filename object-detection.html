@@ -60,12 +60,15 @@
 
                     <h1>Car Detection Using YOLO</h1>
                     <p>You are working on a self-driving car. Go you! As a critical component of this project, you'd
-                        like to first build a car detection system. To collect data, I've used a dataset where a mounted camera to the hood
+                        like to first build a car detection system. To collect data, I've used a dataset where a mounted
+                        camera to the hood
                         (meaning the front) of the car, takes pictures of the road ahead every few seconds as it
                         drive around. I've gathered all these images into a folder and labelled them by drawing
                         bounding boxes around every car you found. Here's an example of what bounding boxes look
                         like:</p>
-                    <img src="images/bounding-box.png" alt="" width="600" height="300" style="display: block; margin-left: auto; margin-right: auto;"/>
+                    <!-- <img src="images/bounding-box.png" alt="" width="600" height="300" style="display: block; margin-left: auto; margin-right: auto;"/> -->
+                    <img src="images/bounding-box.png" alt=""
+                        style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
 
                     <p>There are 80 classes you I the object detector to recognize, they are represented as the class
                         label <i>c</i> either as an integer from 1 to 80, or as an 80-dimensional vector (with 80
@@ -100,15 +103,21 @@
 
                     <h1>Encoding</h1>
                     <p>Let's look in greater detail at what this encoding represents.</p>
-                    <img src="images/encoding_yolo.png" alt="" width="750" height="375" style="display: block; margin-left: auto; margin-right: auto;"/>
+                    <!-- <img src="images/encoding_yolo.png" alt="" width="750" height="375" style="display: block; margin-left: auto; margin-right: auto;"/> -->
+                    <img src="images/encoding_yolo.png" alt=""
+                        style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
                     <p>If the center/midpoint of an object falls into a grid cell, that grid cell is responsible for
                         detecting that object.</p>
 
                     <h1>Visualizing Bounding Boxes</h1>
                     <p>Another way to visualize YOLO's output is to plot the bounding boxes that it outputs. Doing that
                         results in a visualization like this:</p>
-                    <img src="images/visualising-bounding-boxes.png" alt="" width="300" height="300" style="display: block; margin-left: auto; margin-right: auto;"/>
-                    <p>Each cell gives you 5 boxes. In total, the model predicts: 19x19x5 = 1805 boxes just by looking once at the image (one forward pass through the network)! Different colors denote different classes.</p>
+                    <!-- <img src="images/visualising-bounding-boxes.png" alt="" width="300" height="300" style="display: block; margin-left: auto; margin-right: auto;"/> -->
+                    <img src="images/visualising-bounding-boxes.png" alt=""
+                        style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+                    <p>Each cell gives you 5 boxes. In total, the model predicts: 19x19x5 = 1805 boxes just by looking
+                        once at the image (one forward pass through the network)! Different colors denote different
+                        classes.</p>
 
                     <h1>Non-Max Suppression</h1>
                     <p>In the figure above, the only boxes plotted are ones for which the model had assigned a high
@@ -123,7 +132,9 @@
                         <li>Select only one box when several boxes overlap with each other and detect the same object.
                         </li>
                     </ul>
-                    <img src="images/non-max_suppression.png" alt="" width="650" height="300" style="display: block; margin-left: auto; margin-right: auto;"/>
+                    <!-- <img src="images/non-max_suppression.png" alt="" width="650" height="300" style="display: block; margin-left: auto; margin-right: auto;"/> -->
+                    <img src="images/non-max_suppression.png" alt=""
+                        style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
 
                     <hi>Summary for YOLO</hi>
                     <ul>
@@ -150,10 +161,20 @@
                     </ul>
                     <p>This gives the YOLO's final output.</p>
 
-                    
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/atzaqX_PztE?si=k8B17eEfbMM6mgSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display: block; margin: 0 auto; margin-bottom: 20px; margin-top: 20px;"></iframe>
-                    <img src="images/yolo_output.png" alt="" width="400" height="300" style="display: block; margin-left: auto; margin-right: auto;"/>
-                    <img src="images/yolo_output2.png" alt="" width="400" height="300" style="display: block; margin-left: auto; margin-right: auto;"/>
+                    <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; margin: 20px 0;">
+                        <iframe src="https://www.youtube.com/embed/atzaqX_PztE?si=k8B17eEfbMM6mgSo"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                        </iframe>
+                    </div>
+                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/atzaqX_PztE?si=k8B17eEfbMM6mgSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display: block; margin: 0 auto; margin-bottom: 20px; margin-top: 20px;"></iframe> -->
+                    <!-- <img src="images/yolo_output.png" alt="" width="400" height="300" style="display: block; margin-left: auto; margin-right: auto;"/> -->
+                    <img src="images/yolo_output.png" alt=""
+                        style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+                    <!-- <img src="images/yolo_output2.png" alt="" width="400" height="300" style="display: block; margin-left: auto; margin-right: auto;"/> -->
+                    <img src="images/yolo_output2.png" alt=""
+                        style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
                 </article>
             </div>
         </section>

@@ -31,7 +31,7 @@
         <!-- Header -->
         <section id="header">
             <!-- Logo -->
-            <h1><a href="index.html">Face Recognition using MTCNN and Siamese Network</a></h1>
+            <h1><a href="index.html">Face Recognition using MTCNN and Inception ResNet</a></h1>
 
             <!-- Nav -->
             <nav id="nav">
@@ -57,7 +57,7 @@
                     <header>
                         <p>[Jun'24]</p>
                     </header>
-                    <h1>Face Recognition using MTCNN and Siamese Network</h1>
+                    <h1>Face Recognition using MTCNN and Inception ResNet</h1>
                     <p>Face recognition problems commonly fall into one of two categories:</p>
                     <ul>
                         <li><strong>Face Verification</strong> - "Is this the claimed person?" For example, at some
@@ -72,17 +72,23 @@
                     <p>Multi-task Cascaded Convolutional Networks (MTCNN) are used for accurate face detection, capable
                         of identifying and aligning faces in images through a multi-stage process. This method enhances
                         the precision of face extraction by detecting facial landmarks.</p>
-                    <img src="images/MTCNN.png" alt="" width="800" height="400"
-                        style="display: block; margin-left: auto; margin-right: auto;" />
-                    <img src="images/MTCNN-P-R-O-Net.png" alt="" width="800" height="500"
-                        style="display: block; margin-left: auto; margin-right: auto;" />
+                    <!-- <img src="images/MTCNN.png" alt="" width="800" height="400"
+                        style="display: block; margin-left: auto; margin-right: auto;" /> -->
+                    <img src="images/MTCNN.png" alt="MTCNN Image"
+                        style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+                    <!-- <img src="images/MTCNN-P-R-O-Net.png" alt="" width="800" height="500"
+                        style="display: block; margin-left: auto; margin-right: auto;" /> -->
+                    <img src="images/MTCNN-P-R-O-Net.png" alt=""
+                        style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
                     <p>Siamese Network encodes a face image into a vector of 128 numbers. By
                         comparing two such vectors, it can be determined if two pictures are of the same person.</p>
-                    <p>By using a 128-neuron fully connected layer as its last layer, the model ensures that the output
-                        is an encoding vector of size 128. You then use the encodings to compare two face images as
+                    <p>By using a Inception ResNet, the model ensures that the output
+                        is an encoding vector of size 128. Then the encodings is used to compare two face images as
                         follows:</p>
-                    <img src="images/encoding_comparision.png" alt="" width="800" height="350"
-                        style="display: block; margin-left: auto; margin-right: auto;" />
+                    <!-- <img src="images/encoding_comparision.png" alt="" width="800" height="350"
+                        style="display: block; margin-left: auto; margin-right: auto;" /> -->
+                    <img src="images/encoding_comparision.png" alt=""
+                        style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
                     <p>By computing the distance between two encodings and thresholding, you can determine if the two
                         pictures represent the same person. So, an encoding is a good one if:</p>
                     <ul>
@@ -92,8 +98,10 @@
                     <p>The triplet loss function formalizes this, and tries to "push" the encodings of two images of the
                         same person (Anchor and Positive) closer together, while "pulling" the encodings of two images
                         of different persons (Anchor, Negative) further apart.</p>
-                    <img src="images/triple_loss.png" alt="" width="400" height="200"
-                        style="display: block; margin-left: auto; margin-right: auto;" />
+                    <!-- <img src="images/triple_loss.png" alt="" width="400" height="200"
+                        style="display: block; margin-left: auto; margin-right: auto;" /> -->
+                    <img src="images/triple_loss.png" alt=""
+                        style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
                     <p>In my project, I used Multi-task Cascaded Convolutional Networks (MTCNN) to first extract the
                         face from the image. These extracted faces were then used in the Siamese Network for the face
                         recognition process.The model was trained to generate these 128-dimensional encodings for face
@@ -106,7 +114,7 @@
                         <li>Posed face recognition as a binary classification problem</li>
                         <li>Implemented one-shot learning for a face recognition problem</li>
                         <li>First the face is extracted from the image using MTCNN.</li>
-                        <li>Then, used Siamese network and triplet loss function to learn the parameters of the model
+                        <li>Then, used Inception ResNet and triplet loss function to learn the parameters of the model
                             for face recognition</li>
                         <li>Mapped face images into 128-dimensional encodings using a pretrained model</li>
                         <li>Performed face verification and face recognition with these encodings</li>
@@ -122,8 +130,10 @@
                     <p>Overall, this project showcases the potential of Siamese Networks in face recognition and
                         highlights the effectiveness of deep learning in solving complex problems in computer vision.
                     </p>
-                    <img src="images/face-recognition-output.png" alt="" width="1200" height="600"
-                        style="display: block; margin-left: auto; margin-right: auto;" />
+                    <!-- <img src="images/face-recognition-output.png" alt="" width="1200" height="600"
+                        style="display: block; margin-left: auto; margin-right: auto;" /> -->
+                    <img src="images/face-recognition-output.png" alt=""
+                        style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
                 </article>
             </div>
         </section>

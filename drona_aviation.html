@@ -5,124 +5,167 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Projects</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
 
-		<!-- Add the CSS styles here -->
-		<style>
-			.youtube-card {
-				margin-top: 20px;
-				text-align: center;
-			}
-	
-			.youtube-card iframe {
-				width: 100%;
-				max-width: 800px;
-			}
-		</style>
-	</head>
-	<body class="no-sidebar is-preload">
-		<div id="page-wrapper">
+<head>
+	<title>Projects</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
 
-			<!-- Header -->
-				<section id="header">
+	<!-- Add the CSS styles here -->
+	<style>
+		.youtube-card {
+			margin-top: 20px;
+			text-align: center;
+		}
 
-					<!-- Logo -->
-						<h1><a href="index.html">Remote Programming of Pluto 1.2 Drone</a></h1>
+		.youtube-card iframe {
+			width: 100%;
+			max-width: 800px;
+		}
+	</style>
+</head>
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="index.html">Home</a></li>
-								<li><a href="index.html#experience">Experiences</a></li>
-								<li class="current"><a href="index.html#projects">Projects</a></li>
-								<li><a href="pdfs/Resume - June 2024.pdf" target="_blank">Resume</a></li>
-								<li><a href="index.html#courses">Courses</a></li>
-								<li><a href="index.html#blogs">Blogs</a></li>
-								<li><a href="index.html#contact">Contact</a></li>
+<body class="no-sidebar is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<section id="header">
+
+			<!-- Logo -->
+			<h1><a href="index.html">Remote Programming of Pluto 1.2 Drone</a></h1>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="index.html#experience">Experiences</a></li>
+					<li class="current"><a href="index.html#projects">Projects</a></li>
+					<li><a href="pdfs/Resume - June 2024.pdf" target="_blank">Resume</a></li>
+					<li><a href="index.html#courses">Courses</a></li>
+					<li><a href="index.html#blogs">Blogs</a></li>
+					<li><a href="index.html#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+		</section>
+
+		<!-- Main -->
+		<section id="main">
+			<div class="container">
+
+				<!-- Content -->
+				<article class="box post">
+					<a href="#" class="image featured"></a>
+
+					<header>
+						<h3>Guide: Robotics Club - IIT Tirupati</h3>
+						<p>[Dec'22 - Feb'23]</p>
+					</header>
+					<p>
+						Embarking on a journey to remote program India's best-selling educational nano drone, Pluto as a
+						part of solution to Inter IIT Tech Meet 11.0 problem statement, was nothing short of
+						exhilarating. This project provided me with the unique opportunity to delve into the intricacies
+						of drone technology and develop a Python-based solution that allowed users to control Pluto
+						without the need for a mobile application. Let me walk you through my perspective and
+						experiences throughout this thrilling project.
+					</p>
+					<p>
+						Task 1: Pioneering a Python Wrapper for Pluto Drone
+					</p>
+					<p>
+						When I initially delved into the project, I was intrigued by the prospect of creating a Python
+						wrapper for Pluto, allowing users to exercise full control over the drone. This task required a
+						comprehensive understanding of the existing communication methods and the MSP (MultiWii Serial
+						Protocol) packets used to communicate with Pluto.
+					</p>
+					<p>
+						I started with investigating the Pluto ROS package, which served as an invaluable reference
+						point. It was here that I truly appreciated the depth of expertise required to navigate the
+						complexities of drone communication and control. Armed with this knowledge, I embarked on the
+						creation of a Python wrapper that would empower users to execute precise drone movements,
+						including pitch adjustments, rolls, take-offs, and landings.
+					</p>
+					<p>
+						The most exciting part of Task 1 was when I remotely flew the Pluto drone using the Python
+						wrapper from both Linux and Windows platforms. It was a moment of triumph, as I saw my code
+						translating into real-world drone maneuvers. The anticipation of receiving the first Pluto drone
+						at my provided shipment address was an additional thrill that underscored the real-world
+						implications of my work.
+					</p>
+					<p>
+						Task 2: Autonomous Flight and ArUco Tag Adventure
+					</p>
+					<p>
+						Task 2 of the project was no less captivating. Here, the goal was to enable Pluto to
+						autonomously hover at a specific height using an ArUco tag-based system. This phase of the
+						project expanded my horizons even further.
+					</p>
+					<p>
+						First, I had to generate an ArUco marker and securely attach it to Pluto. It was fascinating to
+						witness how this small, seemingly ordinary tag played a pivotal role in accurately determining
+						the drone's position.
+					</p>
+					<p>
+						Incorporating a PID controller into the script was a crucial step that allowed me to experience
+						the fine balance between precise control and stability. Watching Pluto hover effortlessly at the
+						designated height was a sight to behold, as it underscored the potential for autonomous drone
+						applications.
+					</p>
+					<p>
+						Taking things a step further, programmed Pluto to perform a rectangular motion, tracing a 1 x 2
+						meter path autonomously. This challenge pushed the boundaries of my programming skills and
+						showcased the potential of autonomous drones in various practical scenarios.
+					</p>
+					<p>
+						In retrospect, this project was more than just a technical endeavor. It was a journey of
+						exploration, innovation, and hands-on learning. It allowed me to delve deep into the world of
+						drone technology, understand the intricacies of communication protocols, and witness the magic
+						of autonomous flight.
+					</p>
+
+					<!-- <img src="images/PlutoX-ortho-view.png" alt="" width="360" height="360" style="display: block; margin: 0 auto;"/> -->
+					<img src="images/PlutoX-ortho-view.png" alt=""
+						style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+					<!-- <img src="images/packet_structure.png" alt="" width="1080" height="150"/> -->
+					<img src="images/packet_structure.png" alt=""
+						style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
+				</article>
+
+			</div>
+
+		</section>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-4 col-12-medium">
+						<a name="contact"></a>
+						<section>
+							<header>
+								<h2>Contact</h2>
+							</header>
+							<ul class="social">
+								<li><a class="icon solid fa-envelope"
+										href="https://mail.google.com/mail/?view=cm&fs=1&to=sumukh.porwal@gmail.com"><span
+											class="label">Email</span></a></li>
+								<li><a class="icon brands fa-github" href="https://github.com/Sumukh18"><span
+											class="label">Github</span></a></li>
+								<li><a class="icon brands fa-instagram"
+										href="https://www.instagram.com/porwal_sumukh/"><span
+											class="label">Instagram</span></a></li>
+								<li><a class="icon brands fa-linkedin-in"
+										href="https://www.linkedin.com/in/sumukh-porwal-6a1393186/"><span
+											class="label">LinkedIn</span></a></li>
+								<li><a class="icon brands fa-youtube"
+										href="https://www.youtube.com/channel/UCb4YZ6K72Yt9oxVB6j2siUQ"><span
+											class="label">YouTube</span></a></li>
 							</ul>
-						</nav>
-
-				</section>
-
-			<!-- Main -->
-				<section id="main">
-					<div class="container">
-
-						<!-- Content -->
-							<article class="box post">
-								<a href="#" class="image featured"></a>
-								
-								<header>
-									<h3>Guide: Robotics Club - IIT Tirupati</h3>
-									<p>[Dec'22 - Feb'23]</p>
-								</header>
-								<p>
-									Embarking on a journey to remote program India's best-selling educational nano drone, Pluto as a part of solution to Inter IIT Tech Meet 11.0 problem statement, was nothing short of exhilarating. This project provided me with the unique opportunity to delve into the intricacies of drone technology and develop a Python-based solution that allowed users to control Pluto without the need for a mobile application. Let me walk you through my perspective and experiences throughout this thrilling project.									
-								</p>
-								<p>
-									Task 1: Pioneering a Python Wrapper for Pluto Drone
-								</p>
-								<p>
-									When I initially delved into the project, I was intrigued by the prospect of creating a Python wrapper for Pluto, allowing users to exercise full control over the drone. This task required a comprehensive understanding of the existing communication methods and the MSP (MultiWii Serial Protocol) packets used to communicate with Pluto. 
-								</p>
-								<p>
-									I started with investigating the Pluto ROS package, which served as an invaluable reference point. It was here that I truly appreciated the depth of expertise required to navigate the complexities of drone communication and control. Armed with this knowledge, I embarked on the creation of a Python wrapper that would empower users to execute precise drone movements, including pitch adjustments, rolls, take-offs, and landings.
-								</p>
-								<p>
-									The most exciting part of Task 1 was when I remotely flew the Pluto drone using the Python wrapper from both Linux and Windows platforms. It was a moment of triumph, as I saw my code translating into real-world drone maneuvers. The anticipation of receiving the first Pluto drone at my provided shipment address was an additional thrill that underscored the real-world implications of my work.
-								</p>
-								<p>
-									Task 2: Autonomous Flight and ArUco Tag Adventure
-								</p>
-								<p>
-									Task 2 of the project was no less captivating. Here, the goal was to enable Pluto to autonomously hover at a specific height using an ArUco tag-based system. This phase of the project expanded my horizons even further.
-								</p>
-								<p>
-									First, I had to generate an ArUco marker and securely attach it to Pluto. It was fascinating to witness how this small, seemingly ordinary tag played a pivotal role in accurately determining the drone's position.
-								</p>
-								<p>
-									Incorporating a PID controller into the script was a crucial step that allowed me to experience the fine balance between precise control and stability. Watching Pluto hover effortlessly at the designated height was a sight to behold, as it underscored the potential for autonomous drone applications.
-								</p>
-								<p>
-									Taking things a step further, programmed Pluto to perform a rectangular motion, tracing a 1 x 2 meter path autonomously. This challenge pushed the boundaries of my programming skills and showcased the potential of autonomous drones in various practical scenarios.
-								</p>
-								<p>
-									In retrospect, this project was more than just a technical endeavor. It was a journey of exploration, innovation, and hands-on learning. It allowed me to delve deep into the world of drone technology, understand the intricacies of communication protocols, and witness the magic of autonomous flight.
-								</p>
-
-								<img src="images/PlutoX-ortho-view.png" alt="" width="360" height="360" style="display: block; margin: 0 auto;"/>
-								<img src="images/packet_structure.png" alt="" width="1080" height="150"/>
-							</article>
-
+						</section>
 					</div>
-
-				</section>
-
-			<!-- Footer -->
-			<section id="footer">
-				<div class="container">
-					<div class="row">
-
-						<div class="col-4 col-12-medium">
-							<a name="contact"></a>
-							<section>
-								<header>
-									<h2>Contact</h2>
-								</header>
-								<ul class="social">
-									<li><a class="icon solid fa-envelope" href="https://mail.google.com/mail/?view=cm&fs=1&to=sumukh.porwal@gmail.com"><span class="label">Email</span></a></li>
-									<li><a class="icon brands fa-github" href="https://github.com/Sumukh18"><span class="label">Github</span></a></li>
-									<li><a class="icon brands fa-instagram" href="https://www.instagram.com/porwal_sumukh/"><span class="label">Instagram</span></a></li>
-									<li><a class="icon brands fa-linkedin-in" href="https://www.linkedin.com/in/sumukh-porwal-6a1393186/"><span class="label">LinkedIn</span></a></li>
-									<li><a class="icon brands fa-youtube" href="https://www.youtube.com/channel/UCb4YZ6K72Yt9oxVB6j2siUQ"><span class="label">YouTube</span></a></li>
-								</ul>
-							</section>
-						</div>
-						<!-- <div class="col-12">
+					<!-- <div class="col-12">
 
 								<div id="copyright">
 									<ul class="links">
@@ -131,19 +174,20 @@
 								</div>
 
 						</div> -->
-					</div>
 				</div>
-			</section>
+			</div>
+		</section>
 
-		</div>
+	</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 
-	</body>
+</body>
+
 </html>

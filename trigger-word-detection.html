@@ -80,7 +80,8 @@
 
                     <h1>1.1 - Listening to the Data</h1>
 
-                    <p>One of my friends helped by recording background noises in various settings like libraries, cafes, restaurants, homes, and
+                    <p>One of my friends helped by recording background noises in various settings like libraries,
+                        cafes, restaurants, homes, and
                         offices. The dataset includes people speaking in a variety of accents. The <code>raw_data</code>
                         directory contains subsets of raw audio files of positive words, negative words, and background
                         noise, which are used to synthesize a dataset for training the model.</p>
@@ -96,8 +97,10 @@
                     <p>Here is a figure illustrating the labels in a clip where we have
                         inserted "activate", "innocent", "activate", and "baby". Note that the positive labels "1" are
                         associated only with the positive words.</p>
-                    <p><img src="images/audio_labelling.png" alt="" width="600" height="200"
-                        style="display: block; margin-left: auto; margin-right: auto;" />
+                    <!-- <p><img src="images/audio_labelling.png" alt="" width="600" height="200"
+                        style="display: block; margin-left: auto; margin-right: auto;" /> -->
+                    <img src="images/audio_labelling.png" alt=""
+                        style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
 
                     <h1>2. Building the Model</h1>
 
@@ -110,8 +113,10 @@
                     </ul>
 
                     <p>Here is the architecture used.
-                    <img src="images/trigger_architecture.png" alt="" width="1000" height="1000"
-                        style="display: block; margin-left: auto; margin-right: auto;" /></p>
+                        <!-- <img src="images/trigger_architecture.png" alt="" width="1000" height="1000"
+                        style="display: block; margin-left: auto; margin-right: auto;" /></p> -->
+                        <img src="images/trigger_architecture.png" alt=""
+                            style="max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;">
 
                     <h1>2.1 - 1D Convolutional Layer</h1>
 
@@ -146,7 +151,7 @@
                     <audio controls>
                         <source src="audio/output.wav" type="audio/mp3">
                     </audio>
-                    
+
                 </article>
             </div>
         </section>
