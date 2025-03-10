@@ -193,6 +193,44 @@
 						</section>
 					</div>
 
+					<style>
+						.domain-filter {
+							text-align: center;
+							margin: 30px 0;
+							position: relative;
+							z-index: 1;
+						}
+						
+						.domain-filter select {
+							padding: 12px 24px;
+							border: 2px solid #000000;
+							border-radius: 25px;
+							background-color: #f8f9fa;
+							font-size: 1.1em;
+							cursor: pointer;
+							transition: all 0.3s ease;
+							appearance: none;
+							-webkit-appearance: none;
+							-moz-appearance: none;
+							background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+							background-repeat: no-repeat;
+							background-position: right 0.7em top 50%;
+							background-size: 0.65em auto;
+							padding-right: 2.5em;
+						}
+					
+						.domain-filter select:focus {
+							outline: none;
+							box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+						}
+					
+						.projects-container .col-4 {
+							flex: 0 0 33.333333%;
+							max-width: 33.333333%;
+							padding: 15px;
+						}
+					</style>
+
 					<div class="col-12">
 						<a name="projects"></a>
 						<!-- Projects -->
@@ -200,9 +238,21 @@
 							<header class="major">
 								<h2>Projects</h2>
 							</header>
-							<div class="row">
+							<!-- Filter Dropdown -->
+							<div class="domain-filter">
+								<select id="domainFilter" onchange="filterProjects()">
+									<option value="all">All</option>
+									<option value="computer-vision">Computer Vision</option>
+									<option value="control">Controls</option>
+									<option value="deep-learning">Deep Learning</option>
+									<option value="motion-planning">Motion Planning</option>
+									<option value="reinforcement-learning">Reinforcement Learning</option>
+								</select>
+							</div>
+							<br><br>
+							<div class="projects-container">
 								<div class="row">
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,control">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/cbf.gif" alt="" /></a>
@@ -221,7 +271,7 @@
 											</footer> -->
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,computer-vision,deep-learning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/nerf.gif" alt="" /></a>
@@ -237,7 +287,7 @@
 											</footer> -->
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,computer-vision">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/SfM.png" alt="" /></a>
@@ -257,7 +307,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,computer-vision,deep-learning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/AutoPano.png" alt="" /></a>
@@ -279,7 +329,7 @@
 										</section>
 									</div>
 									
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,motion-planning,deep-learning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/clearance_manipulator.png" alt="" /></a>
@@ -301,7 +351,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,reinforcement-learning,motion-planning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/drl_turtlebot3.png" alt="" /></a>
@@ -322,7 +372,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,control">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/pampc.png" alt="" /></a>
@@ -344,7 +394,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,motion-planning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/rgrrt.png" alt="" /></a>
@@ -365,7 +415,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,reinforcement-learning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/breakout.png" alt="" /></a>
@@ -386,7 +436,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,deep-learning,computer-vision">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/image-segmentation.png" alt="" /></a>
@@ -406,7 +456,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,deep-learning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/trigger_word_detection.png" alt="" /></a>
@@ -427,7 +477,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,deep-learning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/face-recognition.png" alt="" /></a>
@@ -447,7 +497,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,deep-learning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/object-detection.png" alt="" /></a>
@@ -467,7 +517,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,control,motion-planning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/srbot.png" alt="" /></a>
@@ -485,7 +535,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,deep-learning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/mobilenetv2.png" alt="" /></a>
@@ -506,7 +556,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,control">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/satellite.webp" alt="" /></a>
@@ -525,7 +575,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,control,motion-planning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/Sentinel_Drone_2.png" alt="" /></a>
@@ -543,7 +593,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,control">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/manipulator.png" alt="" /></a>
@@ -560,7 +610,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/v8_engine.gif" alt="" /></a>
@@ -577,16 +627,15 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,motion-planning">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/turtlebot3_waffle.png" alt="" /></a>
 											<header>
 												<h3>Intruder Detection and Video feedback using TurtleBot3</h3>
 											</header>
-											<p>Lorem ipsum dolor sit amet sit veroeros sed amet blandit consequat
-												veroeros lorem blandit adipiscing et feugiat phasellus tempus dolore
-												ipsum lorem dolore.</p>
+											<p>Developed a TurtleBot3-based surveillance system for intruder detection
+												and video feedback using OpenCV and ROS.</p>
 											<footer>
 												<ul class="actions">
 													<li><a href="intruder_detection.html" class="button alt">Find out
@@ -595,7 +644,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all,control">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/PlutoX-Top-View-optimised.png" alt="" /></a>
@@ -613,7 +662,7 @@
 											</footer>
 										</section>
 									</div>
-									<div class="col-4 col-6-medium col-12-small">
+									<div class="col-4 col-6-medium col-12-small" data-domain="all">
 										<section class="box">
 											<a href="javascript:void(0);" class="image featured"><img
 													src="images/stent2.png" alt="" /></a>
@@ -634,6 +683,49 @@
 						</section>
 
 					</div>
+					<!-- <style>
+						/* Remove these styles */
+						.projects-container {
+							display: flex;
+							flex-wrap: wrap;
+							gap: 1rem;
+						}
+						/* .projects-container [data-domain] {
+							display: block;
+							flex: 1 1 calc(33.333% - 1rem);
+						} */
+						
+						/* Add this instead */
+						.projects-container [data-domain] {
+							transition: all 0.3s ease;
+						}
+						</style> -->
+					<script>
+						function filterProjects() {
+							const domain = document.getElementById('domainFilter').value;
+							const projects = document.querySelectorAll('.projects-container [data-domain]');
+							
+							projects.forEach(project => {
+								const domains = project.getAttribute('data-domain')
+													  .split(',')
+													  .map(d => d.trim()); // Add trim here
+								
+								if (domain === 'all' || domains.includes(domain)) {
+									project.style.display = 'block';
+								} else {
+									project.style.display = 'none';
+								}
+							});
+						
+							// Add Bootstrap row reflow fix
+							const projectsContainer = document.querySelector('.projects-container');
+							projectsContainer.classList.remove('row');
+							void projectsContainer.offsetWidth; // Trigger reflow
+							projectsContainer.classList.add('row');
+						}
+						
+						document.addEventListener('DOMContentLoaded', filterProjects);
+						</script>
 
 					<div class="col-12">
 						<!-- Courses -->
@@ -843,6 +935,7 @@
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		}
 	</script>
+	
 
 
 </body>
